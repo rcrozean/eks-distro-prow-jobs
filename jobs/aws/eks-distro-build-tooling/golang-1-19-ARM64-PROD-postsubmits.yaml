@@ -44,7 +44,7 @@ postsubmits:
         arch: ARM64
       containers:
       - name: build-container
-        image: public.ecr.rcrozean/eks-distro-build-tooling/builder-base:standard-3d803d38ee9b8ba510de43bccee4b7f3c8c59740.2
+        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-3d803d38ee9b8ba510de43bccee4b7f3c8c59740.2
         command:
         - bash
         - -c
@@ -72,7 +72,7 @@ postsubmits:
         - name: AWS_REGION
           value: "us-east-1"
         - name: IMAGE_REPO
-          value: "public.ecr.rcrozean/eks-distro-build-tooling"
+          value: "public.ecr.aws/eks-distro-build-tooling"
         - name: ECR_PUBLIC_PUSH_ROLE_ARN
           value: "arn:aws:iam::832188789588:role/ECRPublicPushRole"
         resources:
