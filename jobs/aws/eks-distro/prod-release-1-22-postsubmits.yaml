@@ -45,7 +45,7 @@ postsubmits:
         arch: AMD64
       containers:
       - name: build-container
-        image: public.ecr.rcrozean/eks-distro-build-tooling/builder-base:standard-3d803d38ee9b8ba510de43bccee4b7f3c8c59740.2
+        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-3d803d38ee9b8ba510de43bccee4b7f3c8c59740.2
         command:
         - bash
         - -c
@@ -69,7 +69,7 @@ postsubmits:
         - name: RELEASE_BRANCH
           value: "1-22"
         - name: IMAGE_REPO
-          value: "public.ecr.rcrozean/eks-distro"
+          value: "public.ecr.aws/eks-distro"
         resources:
           requests:
             memory: "16Gi"
