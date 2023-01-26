@@ -70,13 +70,13 @@ type postsubmitCheck func(postsubmitConfig config.Postsubmit, fileContentsString
 
 func (jc *JobConstants) Init(jobType string) {
 	if jobType == "postsubmit" {
-		jc.Bucket = "s3://prow-data-devstack-prowbucket7c73355c-h7e0qjaxyp8j"
+		jc.Bucket = "s3://prow-data-devstack-prowbucket7c73355c-3pmcfb1rkiv4"
 		jc.Cluster = "prow-postsubmits-cluster"
 		jc.DefaultMakeTarget = "release"
 		jc.PostsubmitConformanceMakeTarget = "postsubmit-conformance"
 		jc.AttributionMakeTarget = "update-attribution-files"
 	} else if jobType == "presubmit" {
-		jc.Bucket = "s3://prow-data-presubmits-devstack-prowbucket7c73355c-11dl00wefbvlc"
+		jc.Bucket = "s3://prow-data-presubmits-devstack-prowbucket7c73355c-1q0y9z4fyvl4p"
 		jc.Cluster = "prow-presubmits-cluster"
 		jc.ServiceAccountName = "presubmits-build-account"
 		jc.DefaultMakeTarget = "build"
