@@ -54,7 +54,7 @@ postsubmits:
           &&
           build/lib/buildkit_check.sh
           &&
-          cp -r "${HOME}/.docker" /home/prow/go/src/github.com/rcrozean/eks-distro
+          if [ -d $PROJECT_PATH/$RELEASE_BRANCH ]; then cp -r "${HOME}/.docker" /home/prow/go/src/github.com/rcrozean/eks-distro
           &&
           make -j2 postsubmit-conformance
         env:
