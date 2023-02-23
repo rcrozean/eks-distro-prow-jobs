@@ -38,7 +38,7 @@ postsubmits:
       base_ref: main
     decoration_config:
       gcs_configuration:
-        bucket: s3://prowdataclusterstack-316434458-prowbucket7c73355c-1n9f9v93wpjcm
+        bucket: s3://prow-data-devstack-prowbucket7c73355c-95eonpcjj7ee
         path_strategy: explicit
       s3_credentials_secret: s3-credentials
     labels:
