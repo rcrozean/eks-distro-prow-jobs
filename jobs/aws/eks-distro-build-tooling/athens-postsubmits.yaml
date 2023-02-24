@@ -19,7 +19,7 @@
 ################################################################################
 
 postsubmits:
-  aws/eks-distro-build-tooling:
+  rcrozean/eks-distro-build-tooling:
   - name: athens-tooling-postsubmit
     always_run: false
     run_if_changed: "EKS_DISTRO_BASE_TAG_FILE|projects/gomods/athens/.*"

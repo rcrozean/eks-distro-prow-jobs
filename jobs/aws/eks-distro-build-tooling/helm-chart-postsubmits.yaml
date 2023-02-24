@@ -19,7 +19,7 @@
 ################################################################################
 
 postsubmits:
-  aws/eks-distro-build-tooling:
+  rcrozean/eks-distro-build-tooling:
   - name: helm-chart-tooling-postsubmit
     always_run: false
     run_if_changed: "helm-charts/.*"

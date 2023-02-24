@@ -19,7 +19,7 @@
 ################################################################################
 
 postsubmits:
-  aws/eks-distro:
+  rcrozean/eks-distro:
   - name: eks-distro-docs-postsubmit
     always_run: false
     run_if_changed: "docs/.*"

@@ -19,7 +19,7 @@
 ################################################################################
 
 postsubmits:
-  aws/eks-distro-build-tooling:
+  rcrozean/eks-distro-build-tooling:
   - name: aws-for-fluent-bit-helm-chart-tooling-postsubmit
     always_run: false
     run_if_changed: "helm-charts/scripts/.*|projects/aws/eks-charts/aws-for-fluent-bit/.*"

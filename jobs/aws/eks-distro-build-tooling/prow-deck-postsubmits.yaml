@@ -19,7 +19,7 @@
 ################################################################################
 
 postsubmits:
-  aws/eks-distro-build-tooling:
+  rcrozean/eks-distro-build-tooling:
   - name: prow-deck-tooling-postsubmit
     always_run: false
     run_if_changed: "projects/kubernetes/test-infra|scripts/setup_public_ecr_push.sh"
