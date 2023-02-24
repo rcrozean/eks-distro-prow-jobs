@@ -19,7 +19,7 @@
 ################################################################################
 
 presubmits:
-  aws/eks-distro-build-tooling:
+  rcrozean/eks-distro-build-tooling:
   - name: kops-tooling-presubmit
     always_run: false
     run_if_changed: "projects/kubernetes/kops/.*"

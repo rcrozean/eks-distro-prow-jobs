@@ -19,7 +19,7 @@
 ################################################################################
 
 postsubmits:
-  aws/eks-distro:
+  rcrozean/eks-distro:
   - name: dev-release-1-25-postsubmit
     always_run: false
     run_if_changed: "release/1-25/development/RELEASE"

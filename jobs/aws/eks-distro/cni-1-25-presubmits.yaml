@@ -19,7 +19,7 @@
 ################################################################################
 
 presubmits:
-  aws/eks-distro:
+  rcrozean/eks-distro:
   - name: cni-plugins-1-25-presubmit
     always_run: false
     run_if_changed: "^build/lib/.*|Common.mk|projects/containernetworking/plugins/(build|Makefile|1-25)"

@@ -19,7 +19,7 @@
 ################################################################################
 
 presubmits:
-  aws/eks-distro-prow-jobs:
+  rcrozean/eks-distro-prow-jobs:
   - name: prowjobs-lint-presubmit
     always_run: false
     run_if_changed: "jobs/aws/.*|templater/.*"

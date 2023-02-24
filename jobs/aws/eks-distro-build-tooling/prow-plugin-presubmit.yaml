@@ -19,7 +19,7 @@
 ################################################################################
 
 presubmits:
-  aws/eks-distro-build-tooling:
+  rcrozean/eks-distro-build-tooling:
   - name: prow-plugin-tooling-presubmit
     always_run: false
     run_if_changed: "tools/eksDistroBuildToolingOpsTools/.*"
