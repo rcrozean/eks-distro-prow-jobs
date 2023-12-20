@@ -31,9 +31,7 @@ rootlesskit \
 	--oci-worker-gc-keepstorage $KEEP_STORAGE \
 	&
 pid=$!
-while [ ! -f /status/done ]
-do
-  sleep 5
+while [ ! -f /status/done ]; do
+	sleep 5
 done
 kill $pid
-
