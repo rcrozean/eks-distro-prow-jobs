@@ -15,27 +15,26 @@
 # Run registry in background mode to be able to poll
 # for the done status file and kill process after
 
-
 while [ ! -f /status/done ]; do
-    echo -e "-------------------------------------------------------------------------------------------------"
-    
-    for folder in "/root/.cache/go-build" "/home/prow/go/pkg/mod" "/home/user/.local/share/buildkit" "/var/lib/registry" "/tmp"; do
-        if [ -d $folder ]; then
-            du -sh $folder 2> /dev/null
-        fi
-    done
+	echo -e "-------------------------------------------------------------------------------------------------"
 
-    for folder in "/home/prow/go/src/github.com/aws"; do
-        if [ -d $folder ]; then
-            echo -e "\n--------------- $folder -------------------"
-            du -Sh $folder 2> /dev/null | sort -rh | head -10 
-            du -sh $folder 2> /dev/null
-            echo -e "--------------- $folder -------------------\n"
-        fi
-    done
+	for folder in "/root/.cache/go-build" "/home/prow/go/pkg/mod" "/home/user/.local/share/buildkit" "/var/lib/registry" "/tmp"; do
+		if [ -d $folder ]; then
+			du -sh $folder 2>/dev/null
+		fi
+	done
 
-    df -h
-    echo -e "-------------------------------------------------------------------------------------------------\n"
-    
-    sleep 20
+	for folder in "/home/prow/go/src/github.com/aws"; do
+		if [ -d $folder ]; then
+			echo -e "\n--------------- $folder -------------------"
+			du -Sh $folder 2>/dev/null | sort -rh | head -10
+			du -sh $folder 2>/dev/null
+			echo -e "--------------- $folder -------------------\n"
+		fi
+	done
+
+	df -h
+	echo -e "-------------------------------------------------------------------------------------------------\n"
+
+	sleep 20
 done

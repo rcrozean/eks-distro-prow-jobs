@@ -15,7 +15,7 @@ all: build lint
 .PHONY: build
 build:  ## Build linter
 build: goversion fmt vet
-	go build -o ./$(BIN_DIR)/prow-linter github.com/aws/eks-distro-prow-jobs/linter
+	go build -o ./$(BIN_DIR)/prow-linter github.com/rcrozean/eks-distro-prow-jobs/linter
 
 goversion:
 	go version

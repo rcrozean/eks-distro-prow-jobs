@@ -3,7 +3,7 @@ skipIfOnlyChanged: {{ .otherReleaseBranches }}|docs/.*|.*.md|go.sum|go.mod|.*Hel
 imageBuild: true
 projectPath: projects/kubernetes/kubernetes
 commands:
-- cp -r "${HOME}/.docker" /home/prow/go/src/github.com/aws/eks-distro
+- cp -r "${HOME}/.docker" /home/prow/go/src/github.com/rcrozean/eks-distro
 - make -j2 postsubmit-conformance
 envVars:
 - name: TEST_ROLE_ARN
@@ -21,7 +21,7 @@ envVars:
 - name: IMAGE_REPO
   value: public.ecr.aws/h1r8a7l5
 - name: DOCKER_CONFIG
-  value: /home/prow/go/src/github.com/aws/eks-distro/.docker
+  value: /home/prow/go/src/github.com/rcrozean/eks-distro/.docker
 resources:
   requests:
     cpu: "2"
