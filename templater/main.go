@@ -14,9 +14,11 @@ import (
 	"github.com/rcrozean/eks-distro-prow-jobs/templater/jobs/utils"
 )
 
-var jobsFolder = "jobs"
-var orgsSupported = []string{"aws"}
-var jobTypes = []string{"periodic", "postsubmit", "presubmit"}
+var (
+	jobsFolder    = "jobs"
+	orgsSupported = []string{"aws"}
+	jobTypes      = []string{"periodic", "postsubmit", "presubmit"}
+)
 
 //go:embed templates/presubmits.yaml
 var presubmitTemplate string
