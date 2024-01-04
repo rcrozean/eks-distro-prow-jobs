@@ -9,9 +9,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/aws/eks-distro-prow-jobs/templater/jobs"
-	"github.com/aws/eks-distro-prow-jobs/templater/jobs/types"
-	"github.com/aws/eks-distro-prow-jobs/templater/jobs/utils"
+	"github.com/rcrozean/eks-distro-prow-jobs/templater/jobs"
+	"github.com/rcrozean/eks-distro-prow-jobs/templater/jobs/types"
+	"github.com/rcrozean/eks-distro-prow-jobs/templater/jobs/utils"
 )
 
 var (
@@ -36,7 +36,7 @@ var editWarning string
 //go:embed BUILDER_BASE_TAG_FILE
 var builderBaseTag string
 
-var buildkitImageTag = "v0.10.5-rootless"
+var buildkitImageTag = "v0.12.3-rootless"
 
 func main() {
 	jobsFolderPath, err := getJobsFolderPath()
@@ -115,6 +115,8 @@ func main() {
 					"bucket":                       bucket,
 					"projectPath":                  jobConfig.ProjectPath,
 					"diskUsage":                    true,
+					"runAsUser":                    jobConfig.RunAsUser,
+					"runAsGroup":                   jobConfig.RunAsGroup,
 				}
 
 				err := GenerateProwjob(fileName, template, data)

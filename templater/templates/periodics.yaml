@@ -66,14 +66,14 @@ periodics:
         trap '{{- if .useDockerBuildX }}(docker buildx rm eks-d-builders || true) && {{ end }}touch /status/done' EXIT
         &&
         {{- if .imageBuild }}
-        {{- if eq .repoName "aws/eks-distro"}}
+        {{- if eq .repoName "rcrozean/eks-distro"}}
         build/lib/buildkit_check.sh
         {{- else }}
         scripts/buildkit_check.sh
         {{- end }}
         {{- if .useDockerBuildX }}
         &&
-        {{- if eq .repoName "aws/eks-distro"}}
+        {{- if eq .repoName "rcrozean/eks-distro"}}
         build/lib/setup_buildx.sh
         {{- else }}
         scripts/setup_buildx.sh

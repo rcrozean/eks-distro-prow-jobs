@@ -38,14 +38,14 @@ presubmits:
       automountServiceAccountToken: false
       containers:
       - name: build-container
-        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-428a7ea2dbaa4a70283a3df0e2ab916da2dde9a5.2
+        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-26faa0420cbe82f43634f6fbe76d6b33bb20f4c4.2
         command:
         - bash
         - -c
         - >
           trap 'touch /status/done && rm -rf /home/prow/go/src/' EXIT
           &&
-          if [ -d $PROJECT_PATH/$RELEASE_BRANCH ]; then make test -C $PROJECT_PATH; fi
+          make test -C $PROJECT_PATH
         env:
         - name: PROJECT_PATH
           value: "projects/kubernetes/kubernetes"
@@ -53,8 +53,9 @@ presubmits:
           value: "1-26"
         resources:
           requests:
-            memory: "26Gi"
-            cpu: "3584m"
+            memory: "32Gi"
+            cpu: "16"
+            ephemeral-storage: "50Gi"
       - command:
         - sh
         args:

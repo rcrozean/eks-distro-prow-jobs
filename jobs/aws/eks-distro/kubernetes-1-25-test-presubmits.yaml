@@ -38,7 +38,7 @@ presubmits:
       automountServiceAccountToken: false
       containers:
       - name: build-container
-        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-428a7ea2dbaa4a70283a3df0e2ab916da2dde9a5.2
+        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-26faa0420cbe82f43634f6fbe76d6b33bb20f4c4.2
         command:
         - bash
         - -c
@@ -53,8 +53,9 @@ presubmits:
           value: "1-25"
         resources:
           requests:
-            memory: "26Gi"
-            cpu: "3584m"
+            memory: "32Gi"
+            cpu: "16"
+            ephemeral-storage: "50Gi"
       - command:
         - sh
         args:

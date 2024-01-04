@@ -38,14 +38,14 @@ presubmits:
       automountServiceAccountToken: false
       containers:
       - name: build-container
-        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-428a7ea2dbaa4a70283a3df0e2ab916da2dde9a5.2
+        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-26faa0420cbe82f43634f6fbe76d6b33bb20f4c4.2
         command:
         - bash
         - -c
         - >
           trap 'touch /status/done && rm -rf /home/prow/go/src/' EXIT
           &&
-          if [ -d $PROJECT_PATH/$RELEASE_BRANCH ]; then make build clean-go-cache clean -C $PROJECT_PATH; fi
+          make build clean-go-cache clean -C $PROJECT_PATH
         env:
         - name: PROJECT_PATH
           value: "projects/containernetworking/plugins"

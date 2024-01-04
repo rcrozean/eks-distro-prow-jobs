@@ -44,7 +44,7 @@ postsubmits:
         arch: AMD64
       containers:
       - name: build-container
-        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-428a7ea2dbaa4a70283a3df0e2ab916da2dde9a5.2
+        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-26faa0420cbe82f43634f6fbe76d6b33bb20f4c4.2
         command:
         - bash
         - -c
@@ -56,6 +56,8 @@ postsubmits:
           make install-deps -C $PROJECT_PATH
           &&
           projects/golang/go/scripts/prow_release.sh
+          &&
+          projects/golang/go/scripts/eks_golang_release_notification.sh
         env:
         - name: PROJECT_PATH
           value: "projects/golang/go"
@@ -73,6 +75,8 @@ postsubmits:
           value: "public.ecr.aws/eks-distro-build-tooling"
         - name: ECR_PUBLIC_PUSH_ROLE_ARN
           value: "arn:aws:iam::832188789588:role/ECRPublicPushRole"
+        - name: SNS_TOPIC_ARN
+          value: "arn:aws:sns:us-east-1:379412251201:eks-golang-updates"
         resources:
           requests:
             memory: "16Gi"
@@ -81,7 +85,7 @@ postsubmits:
             memory: "16Gi"
             cpu: "2560m"
       - name: buildkitd
-        image: moby/buildkit:v0.10.5-rootless
+        image: moby/buildkit:v0.12.3-rootless
         command:
         - sh
         args:

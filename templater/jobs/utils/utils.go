@@ -10,25 +10,22 @@ import (
 
 	"github.com/ghodss/yaml"
 
-	"github.com/aws/eks-distro-prow-jobs/templater/jobs/types"
+	"github.com/rcrozean/eks-distro-prow-jobs/templater/jobs/types"
 )
 
 var releaseBranches = []string{
-	"1-21",
-	"1-22",
-	"1-23",
 	"1-24",
 	"1-25",
 	"1-26",
+	"1-27",
+	"1-28",
+	"1-29",
 }
 
 var golangVersions = []string{
-	"1-15",
-	"1-16",
-	"1-17",
-	"1-18",
 	"1-19",
 	"1-20",
+	"1-21",
 }
 
 var pythonVersions = []string{
@@ -38,7 +35,7 @@ var pythonVersions = []string{
 
 var alVersions = []string{
 	"2",
-	"2022",
+	"2023",
 }
 
 func GetJobsByType(repos []string, jobType string) (map[string]map[string]types.JobConfig, error) {
@@ -170,7 +167,6 @@ func RunMappers(jobsToData map[string]map[string]interface{}, mappers []func(str
 }
 
 func UnmarshalJobs(jobDir string) (map[string]types.JobConfig, error) {
-
 	files, err := ioutil.ReadDir(jobDir)
 	if err != nil {
 		return nil, fmt.Errorf("error reading job directory %s: %v", jobDir, err)
@@ -200,7 +196,7 @@ func UnmarshalJobs(jobDir string) (map[string]types.JobConfig, error) {
 
 		if latest, ok := data["latestReleaseBranch"]; ok && latest.(bool) {
 			for j, command := range jobConfig.Commands {
-				jobConfig.Commands[j] = "if [ -d $PROJECT_PATH/$RELEASE_BRANCH ]; then " + command + "; fi"
+				jobConfig.Commands[j] = "if make check-for-supported-release-branch -C $PROJECT_PATH; then " + command + "; fi"
 			}
 		}
 
