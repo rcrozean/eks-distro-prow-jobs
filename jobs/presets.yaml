@@ -13,121 +13,122 @@
 # limitations under the License.
 
 presets:
-  - labels:
-      pr-creation: "true"
-    volumeMounts:
-      - name: github-auth
-        mountPath: /secrets/github-secrets
-        readOnly: true
-      - name: ssh-auth
-        mountPath: /secrets/ssh-secrets
-        readOnly: true
-    volumes:
-      - name: github-auth
-        secret:
-          secretName: pr-bot-github-token
-          defaultMode: 256
-      - name: ssh-auth
-        secret:
-          secretName: pr-bot-ssh-secret
-          defaultMode: 256
-  - labels:
-      local-registry: "true"
-    volumeMounts:
-      - name: registry-entrypoint
-        readOnly: false
-        mountPath: /registry-script
-      - name: docker-registry-data
-        readOnly: false
-        mountPath: /var/lib/registry
-    volumes:
-      - name: registry-entrypoint
-        configMap:
-          name: registry-entrypoint
-          items:
-            - key: registry-entrypoint.sh
-              path: entrypoint.sh
-      - name: docker-registry-data
-        emptyDir: {}
-  - labels:
-      disk-usage: "true"
-    volumeMounts:
-      - name: go-build-cache
-        readOnly: false
-        mountPath: /root/.cache/go-build
-      - name: disk-usage-entrypoint
-        readOnly: false
-        mountPath: /disk-usage-script
-    volumes:
-      - name: go-build-cache
-        emptyDir: {}
-      - name: disk-usage-entrypoint
-        configMap:
-          name: disk-usage-entrypoint
-          items:
-            - key: disk-usage-entrypoint.sh
-              path: entrypoint.sh
-  - labels:
-      image-build: "true"
-    env:
-      - name: AWS_SDK_LOAD_CONFIG
-        value: "true"
-    volumeMounts:
-      - name: docker-registry-config
-        mountPath: /root/.docker/config.json
-        subPath: config.json
-      - name: run-buildkit
-        readOnly: false
-        mountPath: /run/buildkit
-      - name: entrypoint
-        readOnly: false
-        mountPath: /script
-      - name: buildkitd-data
-        readOnly: false
-        mountPath: /home/user/.local/share/buildkit
-    volumes:
-      # The files in this repo update the respective configmaps
-      # via the config-updater plugin in plugins.yaml for hook
-      - name: docker-registry-config
-        configMap:
-          name: build-setup
-          items:
-            - key: docker-ecr-config.json
-              path: config.json
-      - name: entrypoint
-        configMap:
-          name: buildkitd-entrypoint
-          items:
-            - key: buildkitd-entrypoint.sh
-              path: entrypoint.sh
-      - name: run-buildkit
-        emptyDir: {}
-      - name: buildkitd-data
-        emptyDir: {}
-  - env:
-      - name: AWS_ROLE_SESSION_NAME
-        valueFrom:
-          fieldRef:
-            fieldPath: metadata.name
-      - name: GOPROXY
-        value: "http://athens-proxy.default.svc.cluster.local"
-      - name: FARGATE_PROFILE_NAME
-        valueFrom:
-          fieldRef:
-            fieldPath: metadata.labels['eks.amazonaws.com/fargate-profile']
-    volumes:
-      - name: builder-base-tag-file
-        configMap:
-          name: builder-base-tag-file
-          items:
-            - key: BUILDER_BASE_TAG_FILE
-              path: BUILDER_BASE_TAG_FILE
-      - name: status
-        emptyDir: {}
-    volumeMounts:
-      - name: builder-base-tag-file
-        readOnly: false
-        mountPath: /config
-      - name: status
-        readOnly: false
-        mountPath: /status
+- labels:
+    pr-creation: "true"
+  volumeMounts:
+  - name: github-auth
+    mountPath: /secrets/github-secrets
+    readOnly: true
+  - name: ssh-auth
+    mountPath: /secrets/ssh-secrets
+    readOnly: true
+  volumes:
+  - name: github-auth
+    secret:
+      secretName: pr-bot-github-token
+      defaultMode: 256
+  - name: ssh-auth
+    secret:
+      secretName: pr-bot-ssh-secret
+      defaultMode: 256
+- labels:
+    local-registry: "true"
+  volumeMounts:
+  - name: registry-entrypoint
+    readOnly: false
+    mountPath: /registry-script
+  - name: docker-registry-data
+    readOnly: false
+    mountPath: /var/lib/registry
+  volumes:
+  - name: registry-entrypoint
+    configMap:
+      name: registry-entrypoint
+      items:
+      - key: registry-entrypoint.sh
+        path: entrypoint.sh
+  - name: docker-registry-data
+    emptyDir: {}
+- labels:
+    disk-usage: "true"
+  volumeMounts:
+  - name: go-build-cache
+    readOnly: false
+    mountPath: /root/.cache/go-build
+  - name: disk-usage-entrypoint
+    readOnly: false
+    mountPath: /disk-usage-script
+  volumes:
+  - name: go-build-cache
+    emptyDir: {}
+  - name: disk-usage-entrypoint
+    configMap:
+      name: disk-usage-entrypoint
+      items:
+      - key: disk-usage-entrypoint.sh
+        path: entrypoint.sh
+- labels:
+    image-build: "true"
+  env:
+  - name: AWS_SDK_LOAD_CONFIG
+    value: "true"
+  volumeMounts:
+  - name: docker-registry-config
+    mountPath: /root/.docker/config.json
+    subPath: config.json
+  - name: run-buildkit
+    readOnly: false
+    mountPath: /run/buildkit
+  - name: entrypoint
+    readOnly: false
+    mountPath: /script
+  - name: buildkitd-data
+    readOnly: false
+    mountPath: /home/user/.local/share/buildkit    
+  volumes:
+  # The files in this repo update the respective configmaps
+  # via the config-updater plugin in plugins.yaml for hook
+  - name: docker-registry-config
+    configMap:
+      name: build-setup
+      items:
+      - key: docker-ecr-config.json
+        path: config.json
+  - name: entrypoint
+    configMap:
+      name: buildkitd-entrypoint
+      items:
+      - key: buildkitd-entrypoint.sh
+        path: entrypoint.sh
+  - name: run-buildkit
+    emptyDir: {}
+  - name: buildkitd-data
+    emptyDir: {}
+- env:
+  - name: AWS_ROLE_SESSION_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: metadata.name
+  - name: GOPROXY
+    value: "http://athens-proxy.default.svc.cluster.local"
+  - name: FARGATE_PROFILE_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: metadata.labels['eks.amazonaws.com/fargate-profile']
+  volumes:
+  - name: builder-base-tag-file
+    configMap:
+      name: builder-base-tag-file
+      items:
+      - key: BUILDER_BASE_TAG_FILE
+        path: BUILDER_BASE_TAG_FILE
+  - name: status
+    emptyDir: {}
+  volumeMounts:
+  - name: builder-base-tag-file
+    readOnly: false
+    mountPath: /config
+  - name: status
+    readOnly: false
+    mountPath: /status
+  
