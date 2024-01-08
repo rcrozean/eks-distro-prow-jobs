@@ -48,7 +48,7 @@ func GetJobsByType(repos []string, jobType string) (map[string]map[string]types.
 			return nil, fmt.Errorf("error reading job directory %s: %v", jobDir, err)
 		}
 
-		jobsListByType[fmt.Sprintf("aws/%s", repo)] = jobList
+		jobsListByType[fmt.Sprintf("rcrozean/%s", repo)] = jobList
 	}
 
 	return jobsListByType, nil

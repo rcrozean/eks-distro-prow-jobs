@@ -10,12 +10,12 @@ commands:
 projectPath: eks-distro-base
 envVars:
 - name: REPO_OWNER
-  value: aws
+  value: rcrozean
 - name: OUTPUT_DEBUG_LOG
   value: true
 extraRefs:
 - baseRef: main
-  org: aws
+  org: rcrozean
   repo: eks-distro-build-tooling
 - baseRef: main
   org: eks-distro-pr-bot

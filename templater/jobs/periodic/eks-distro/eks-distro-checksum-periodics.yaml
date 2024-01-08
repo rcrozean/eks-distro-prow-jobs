@@ -5,10 +5,10 @@ commands:
 - make update-checksum-files
 envVars:
 - name: REPO_OWNER
-  value: aws
+  value: rcrozean
 extraRefs:
 - baseRef: main
-  org: aws
+  org: rcrozean
   repo: eks-distro
 resources:
   requests:
