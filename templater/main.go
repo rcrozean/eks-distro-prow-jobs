@@ -16,7 +16,7 @@ import (
 
 var (
 	jobsFolder    = "jobs"
-	orgsSupported = []string{"aws"}
+	orgsSupported = []string{"rcrozean"}
 	jobTypes      = []string{"periodic", "postsubmit", "presubmit"}
 )
 
