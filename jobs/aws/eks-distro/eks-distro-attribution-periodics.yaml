@@ -24,7 +24,7 @@ periodics:
   cluster: "prow-postsubmits-cluster"
   error_on_eviction: true
   extra_refs:
-  - org: aws
+  - org: rcrozean
     repo: eks-distro
     base_ref: main
   decoration_config:
@@ -55,7 +55,7 @@ periodics:
       - name: PROJECT_PATH
         value: ""
       - name: REPO_OWNER
-        value: "aws"
+        value: "rcrozean"
       resources:
         requests:
           memory: "16Gi"
