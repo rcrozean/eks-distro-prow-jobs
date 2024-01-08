@@ -24,7 +24,7 @@ periodics:
   cluster: "prow-postsubmits-cluster"
   error_on_eviction: true
   extra_refs:
-  - org: aws
+  - org: rcrozean
     repo: eks-distro-build-tooling
     base_ref: main
   - org: eks-distro-pr-bot
@@ -86,7 +86,7 @@ periodics:
       - name: AWS_REGION
         value: "us-east-1"
       - name: REPO_OWNER
-        value: "aws"
+        value: "rcrozean"
       - name: OUTPUT_DEBUG_LOG
         value: "true"
       - name: CREATE_BUILDER_PODS
