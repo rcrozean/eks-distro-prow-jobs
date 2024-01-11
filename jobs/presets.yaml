@@ -130,5 +130,4 @@ presets:
     mountPath: /config
   - name: status
     readOnly: false
-    mountPath: /status
-  
+    mountPath: /status 
