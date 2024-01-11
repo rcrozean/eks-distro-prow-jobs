@@ -30,7 +30,7 @@ periodics:
   decoration_config:
     timeout: 4h
     gcs_configuration:
-      bucket: s3://prow-data-devstack-prowbucket7c73355c-ipycgnvqymyl
+      bucket: s3://prow-data-devstack-prowbucket7c73355c-ixqcehiwq2pf
       path_strategy: explicit
     s3_credentials_secret: s3-credentials
   labels:

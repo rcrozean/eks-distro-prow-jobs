@@ -181,11 +181,11 @@ func clusterDetails(jobType string, cluster string, serviceAccountName string) (
 	}
 
 	cluster = "prow-presubmits-cluster"
-	bucket := "s3://prow-data-presubmits-devstack-prowbucket7c73355c-wghhkfd6df4j"
+	bucket := "s3://prow-data-presubmits-devstack-prowbucket7c73355c-gt06z2xihziq"
 
 	if jobType == "postsubmit" || jobType == "periodic" {
 		cluster = "prow-postsubmits-cluster"
-		bucket = "s3://prow-data-devstack-prowbucket7c73355c-ipycgnvqymyl"
+		bucket = "s3://prow-data-devstack-prowbucket7c73355c-ixqcehiwq2pf"
 	}
 
 	if len(serviceAccountName) == 0 {

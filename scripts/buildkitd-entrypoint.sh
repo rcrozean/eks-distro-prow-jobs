@@ -14,7 +14,7 @@
 
 # Run buildkitd in background mode to be able to poll
 # for the done status file and kill process after
-
+#
 # if running on the postsubmit cluster allow more cache space
 KEEP_STORAGE=20000
 if [ -n "${FARGATE_PROFILE_NAME}" ]; then
