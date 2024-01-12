@@ -21,6 +21,7 @@
 postsubmits:
   rcrozean/eks-distro-build-tooling:
   - name: prometheus-tooling-postsubmit
+    decorate: true
     always_run: false
     run_if_changed: "projects/prometheus/prometheus/.*"
     branches:

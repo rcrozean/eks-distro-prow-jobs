@@ -23,6 +23,7 @@ periodics:
   cron: "0 0 1 */3 *"
   cluster: "prow-postsubmits-cluster"
   error_on_eviction: true
+  decorate: true
   extra_refs:
   - org: rcrozean
     repo: eks-distro-build-tooling

@@ -21,6 +21,7 @@
 postsubmits:
   rcrozean/eks-distro-build-tooling:
   - name: amazon-eks-pod-identity-webhook-tooling-postsubmit
+    decorate: true
     always_run: false
     run_if_changed: "projects/aws/amazon-eks-pod-identity-webhook/.*"
     branches:

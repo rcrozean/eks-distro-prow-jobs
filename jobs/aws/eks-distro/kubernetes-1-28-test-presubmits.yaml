@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro:
   - name: kubernetes-1-28-test-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "projects/kubernetes/kubernetes/1-28/(GIT_TAG|patches)"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

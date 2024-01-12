@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro:
   - name: etcd-1-27-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "EKS_DISTRO_MINIMAL_BASE_TAG_FILE|^build/lib/.*|Common.mk|projects/etcd-io/etcd/(build|docker|Makefile|1-27)"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro:
   - name: main-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "EKS_DISTRO_BASE_.*_FILE|^Makefile$|cmd/.*"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

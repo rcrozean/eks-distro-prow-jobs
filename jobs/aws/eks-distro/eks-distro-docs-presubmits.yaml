@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro:
   - name: eks-distro-docs-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "docs/.*"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

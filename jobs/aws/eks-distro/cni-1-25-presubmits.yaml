@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro:
   - name: cni-plugins-1-25-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "^build/lib/.*|Common.mk|projects/containernetworking/plugins/(build|Makefile|1-25)"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

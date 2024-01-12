@@ -18,6 +18,7 @@
 postsubmits:
   {{ .repoName }}:
   - name: {{ .prowjobName }}
+    decorate: true
     always_run: false
     {{- if .runIfChanged }}
     run_if_changed: "{{ .runIfChanged }}"

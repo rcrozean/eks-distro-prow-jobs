@@ -20,6 +20,7 @@ periodics:
   cron: "{{ .cronExpression }}"
   cluster: "{{ .cluster }}"
   error_on_eviction: true
+  decorate: true
   {{- if .extraRefs }}
   extra_refs:
   {{- range .extraRefs }}

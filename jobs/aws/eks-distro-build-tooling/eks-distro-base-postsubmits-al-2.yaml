@@ -21,6 +21,7 @@
 postsubmits:
   rcrozean/eks-distro-build-tooling:
   - name: eks-distro-base-tooling-postsubmit-al-2
+    decorate: true
     always_run: false
     run_if_changed: "^eks-distro-base/postsubmit_trigger$"
     branches:
