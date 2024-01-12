@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro:
   - name: kubernetes-1-26-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "EKS_DISTRO_MINIMAL_BASE_TAG_FILE|EKS_DISTRO_MINIMAL_BASE_IPTABLES_TAG_FILE|^build/lib/.*|Common.mk|projects/kubernetes/kubernetes/(build|docker|Makefile|1-26)"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

@@ -21,6 +21,7 @@
 postsubmits:
   rcrozean/eks-distro:
   - name: eks-distro-docs-postsubmit
+    decorate: true
     always_run: false
     run_if_changed: "docs/.*"
     branches:

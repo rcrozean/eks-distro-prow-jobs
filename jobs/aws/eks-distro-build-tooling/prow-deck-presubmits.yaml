@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro-build-tooling:
   - name: prow-deck-tooling-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "projects/kubernetes/test-infra|scripts/setup_public_ecr_push.sh"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

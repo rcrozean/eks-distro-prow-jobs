@@ -21,6 +21,7 @@
 postsubmits:
   rcrozean/eks-distro:
   - name: announcement-postsubmit
+    decorate: true
     always_run: false
     run_if_changed: "docs/contents/releases/.*/release-announcement.txt"
     branches:

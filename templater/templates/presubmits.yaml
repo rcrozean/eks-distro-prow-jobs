@@ -19,6 +19,7 @@ presubmits:
   {{ .repoName }}:
   - name: {{ .prowjobName }}
     always_run: false
+    decorate: true
     run_if_changed: "{{ .runIfChanged }}"
     {{- if .branches }}
     branches:

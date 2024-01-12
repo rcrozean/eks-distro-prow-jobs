@@ -21,6 +21,7 @@
 postsubmits:
   rcrozean/eks-distro-build-tooling:
   - name: golang-1-21-PROD-images-tooling-postsubmit
+    decorate: true
     always_run: false
     run_if_changed: "projects/golang/go/docker/debianBase/RELEASE"
     branches:

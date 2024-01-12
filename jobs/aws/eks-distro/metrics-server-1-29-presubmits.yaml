@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro:
   - name: metrics-server-1-29-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "EKS_DISTRO_MINIMAL_BASE_TAG_FILE|^build/lib/.*|Common.mk|projects/kubernetes-sigs/metrics-server/(build|docker|Makefile|1-29)"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

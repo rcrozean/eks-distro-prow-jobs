@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro:
   - name: aws-iam-authenticator-1-24-presubmit
     always_run: false
+    decorate: true
     run_if_changed: "EKS_DISTRO_MINIMAL_BASE_TAG_FILE|^build/lib/.*|Common.mk|projects/kubernetes-sigs/aws-iam-authenticator/(build|docker|Makefile|1-24)"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"

@@ -21,6 +21,7 @@
 postsubmits:
   rcrozean/eks-distro:
   - name: dev-release-1-29-postsubmit
+    decorate: true
     always_run: false
     run_if_changed: "release/1-29/development/RELEASE"
     branches:

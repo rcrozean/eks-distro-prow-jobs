@@ -22,6 +22,7 @@ presubmits:
   rcrozean/eks-distro-build-tooling:
   - name: eks-distro-base-tooling-presubmits-python-3-7-al-2023
     always_run: false
+    decorate: true
     run_if_changed: "eks-distro-base/.*|scripts/setup_public_ecr_push.sh"
     max_concurrency: 10
     cluster: "prow-presubmits-cluster"
