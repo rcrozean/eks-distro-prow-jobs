@@ -33,7 +33,7 @@ presubmits:
       base_ref: main
     decoration_config:
       gcs_configuration:
-        bucket: s3://prow-data-presubmits-devstack-prowbucket7c73355c-gt06z2xihziq
+        bucket: s3://prow-data-presubmits-devstack-prowbucket7c73355c-5qn1vzrmqzuf
         path_strategy: explicit
       s3_credentials_secret: s3-credentials
     labels:

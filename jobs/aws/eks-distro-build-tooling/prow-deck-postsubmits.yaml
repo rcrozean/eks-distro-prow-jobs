@@ -36,7 +36,7 @@ postsubmits:
       base_ref: main
     decoration_config:
       gcs_configuration:
-        bucket: s3://prow-data-devstack-prowbucket7c73355c-ixqcehiwq2pf
+        bucket: s3://prow-data-devstack-prowbucket7c73355c-x1drvm9kvgac
         path_strategy: explicit
       s3_credentials_secret: s3-credentials
     labels:
