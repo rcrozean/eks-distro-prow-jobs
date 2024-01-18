@@ -14,7 +14,6 @@
 #
 # Run registry in background mode to be able to poll
 # for the done status file and kill process after
-
 while [ ! -f /status/done ]; do
 	echo -e "-------------------------------------------------------------------------------------------------"
 
